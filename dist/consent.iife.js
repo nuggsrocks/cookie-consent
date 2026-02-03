@@ -1,6 +1,12 @@
-"use strict";(()=>{var n="site_consent_v1";function r({gtmId:t}){window.dataLayer=window.dataLayer||[],window.dataLayer.push({event:"gtm.js","gtm.start":Date.now()});let e=document.createElement("script");e.async=!0,e.id="google-tag-manager",e.src=`https://www.googletagmanager.com/gtm.js?id=${t}`,document.head.append(e),window.__gtmLoaded=!0}var m=`#banner {
+"use strict";(()=>{var n="site_consent_v1";function a({gtmId:t}){window.dataLayer=window.dataLayer||[],window.dataLayer.push({event:"gtm.js","gtm.start":Date.now()});let e=document.createElement("script");e.async=!0,e.id="google-tag-manager",e.src=`https://www.googletagmanager.com/gtm.js?id=${t}`,document.head.append(e),window.__gtmLoaded=!0}var p=`:root {
+  --cc-background: white;
+  --cc-foreground: black;
+  --cc-accent: oklch(0.85 0 0);
+}
+
+#banner {
   background-color: white;
-  border: 1px solid oklch(0.85 0 0);
+  border: 1px solid var(--cc-accent);
   border-radius: calc(0.625rem - 2px);
   max-width: 25%;
   position: fixed;
@@ -69,12 +75,12 @@ button {
 }
 
 button[data-close] {
-  color: black;
+  color: var(--cc-foreground);
   width: 36px;
   height: 36px;
 
   &:hover {
-    color: oklch(0.5 0 0);
+    color: color-mix(in oklch, var(--cc-foreground) 50%, transparent 50%);
   }
 }
 
@@ -85,15 +91,15 @@ button[data-accept] {
 button[data-accept],
 button[data-reject] {
   padding: 0.5rem 1rem;
-  background-color: oklch(27.54% 0.1291 308.93deg);
-  color: oklch(78.57% 0.1552 85.32deg);
+  background-color: var(--cc-background);
+  color: var(--cc-foreground);
   border: none;
   width: 100%;
 
   &:hover {
     background-color: color-mix(
       in oklch,
-      oklch(27.54% 0.1291 308.93deg) 90%,
+      var(--cc-background) 90%,
       transparent
     );
   }
@@ -107,7 +113,7 @@ button[data-reject] {
 }
 `;function o(){let t=document.createElement("div"),e=t.attachShadow({mode:"open"});e.innerHTML=`
     <style>
-      ${m}
+      ${p}
     </style>
     <div id="banner">
       <div id="heading">
@@ -158,4 +164,4 @@ button[data-reject] {
       <button data-accept>Accept</button>
       <button data-reject>Reject</button>
     </div>
-  `;let d=e.querySelector("[data-close]");d&&(d.onclick=()=>{e.querySelector("#banner")?.classList.remove("visible")});let l=e.querySelector("[data-accept]");l&&(l.onclick=()=>{window.cookieConsent.acceptAnalytics(),e.querySelector("#banner")?.classList.remove("visible")});let p=e.querySelector("[data-reject]");p&&(p.onclick=()=>{window.cookieConsent.rejectAll(),e.querySelector("#banner")?.classList.remove("visible")}),document.body.appendChild(t),setTimeout(()=>{e.querySelector("#banner")?.classList.add("visible")},300)}function u(){gtag("consent","default",{analytics_storage:"denied",ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied"})}function i(t){gtag("consent","update",{analytics_storage:t.analytics?"granted":"denied",ad_storage:t.marketing?"granted":"denied",ad_user_data:t.marketing?"granted":"denied",ad_personalization:t.marketing?"granted":"denied"})}function a(t){try{return JSON.parse(localStorage.getItem(t))}catch{return null}}function h(t,e){localStorage.setItem(e,JSON.stringify(t))}function s(t,e){h(t,e),i(t),window.dispatchEvent(new CustomEvent("consent:change",{detail:t}))}function c(){window.cookieConsent={getState(){return a(n)},acceptAnalytics(){s({analytics:!0,marketing:!1},n)},rejectAll(){s({analytics:!1,marketing:!1},n)},open(){o()}}}function w({gtmId:t}){if(t===void 0){console.error("Must provide a Google Tag Manager id");return}window.dataLayer=window.dataLayer||[],window.gtag=function(){dataLayer.push(arguments)},u(),r({gtmId:t});let e=a(n);e?i(e):o(),c()}var f=document.currentScript;window.onload=()=>{w({gtmId:f?.dataset.gtm})};})();
+  `;let d=e.querySelector("[data-close]");d&&(d.onclick=()=>{e.querySelector("#banner")?.classList.remove("visible")});let l=e.querySelector("[data-accept]");l&&(l.onclick=()=>{window.cookieConsent.acceptAnalytics(),e.querySelector("#banner")?.classList.remove("visible")});let u=e.querySelector("[data-reject]");u&&(u.onclick=()=>{window.cookieConsent.rejectAll(),e.querySelector("#banner")?.classList.remove("visible")}),document.body.appendChild(t),setTimeout(()=>{e.querySelector("#banner")?.classList.add("visible")},300)}function m(){gtag("consent","default",{analytics_storage:"denied",ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied"})}function i(t){gtag("consent","update",{analytics_storage:t.analytics?"granted":"denied",ad_storage:t.marketing?"granted":"denied",ad_user_data:t.marketing?"granted":"denied",ad_personalization:t.marketing?"granted":"denied"})}function r(t){try{return JSON.parse(localStorage.getItem(t))}catch{return null}}function w(t,e){localStorage.setItem(e,JSON.stringify(t))}function c(t,e){w(t,e),i(t),window.dispatchEvent(new CustomEvent("consent:change",{detail:t}))}function s(){window.cookieConsent={getState(){return r(n)},acceptAnalytics(){c({analytics:!0,marketing:!1},n)},rejectAll(){c({analytics:!1,marketing:!1},n)},open(){o()}}}function f({gtmId:t}){if(t===void 0){console.error("Must provide a Google Tag Manager id");return}window.dataLayer=window.dataLayer||[],window.gtag=function(){dataLayer.push(arguments)},m(),a({gtmId:t});let e=r(n);e?i(e):o(),s()}var h=document.currentScript;window.onload=()=>{f({gtmId:h?.dataset.gtm})};})();
