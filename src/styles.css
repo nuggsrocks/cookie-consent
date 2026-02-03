@@ -75,12 +75,12 @@ button {
 }
 
 button[data-close] {
-  color: var(--cc-foreground);
+  color: black;
   width: 36px;
   height: 36px;
 
   &:hover {
-    color: color-mix(in oklch, var(--cc-foreground) 50%, transparent 50%);
+    color: color-mix(in oklch, black 60%, transparent);
   }
 }
 
