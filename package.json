@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "type": "module",
   "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js"
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     }
   },
   "files": [
@@ -14,7 +16,8 @@
   "scripts": {
     "build:esm": "esbuild index.ts --bundle --format=esm --loader:.css=text --outfile=dist/index.js",
     "build:iife": "esbuild index.ts --bundle --minify --format=iife --loader:.css=text --outfile=dist/consent.js",
-    "build": "rm -rf dist && pnpm build:esm && pnpm build:iife"
+    "build:types": "tsc",
+    "build": "rm -rf dist && pnpm build:esm && pnpm build:iife && pnpm build:types"
   },
   "packageManager": "pnpm@10.28.1",
   "devDependencies": {
