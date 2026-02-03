@@ -2,21 +2,24 @@
   "name": "cookie-consent",
   "version": "1.0.0",
   "type": "module",
+  "main": "./dist/index.js",
   "exports": {
     ".": {
       "import": "./dist/index.js"
-    },
-    "./next": {
-      "import": "./dist/next.js"
     }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "vite build"
+    "build:esm": "esbuild index.ts --bundle --format=esm --loader:.css=text --outfile=dist/index.js",
+    "build:iife": "esbuild index.ts --bundle --minify --format=iife --loader:.css=text --outfile=dist/consent.js",
+    "build": "rm -rf dist && pnpm build:esm && pnpm build:iife"
   },
   "packageManager": "pnpm@10.28.1",
   "devDependencies": {
     "@types/node": "^25.2.0",
-    "typescript": "^5.9.3",
-    "vite": "^7.3.1"
+    "esbuild": "^0.27.2",
+    "typescript": "^5.9.3"
   }
 }

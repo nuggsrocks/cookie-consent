@@ -1,5 +1,5 @@
 // @ts-expect-error
-import css from "./styles.css?inline";
+import css from "./styles.css";
 
 export default function createBanner() {
   const host = document.createElement("div");
