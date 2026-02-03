@@ -4,7 +4,10 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/consent.iife.js"
+      "import": "./dist/index.js"
+    },
+    "./next": {
+      "import": "./dist/next.js"
     }
   },
   "scripts": {

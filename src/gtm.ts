@@ -1,3 +1,5 @@
+export const consentKey = "site_consent_v1";
+
 export default function loadGTM({ gtmId }: { gtmId: string }) {
   // @ts-expect-error
   window.dataLayer = window.dataLayer || [];

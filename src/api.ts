@@ -1,8 +1,8 @@
-import { consentKey } from "../index";
+import { consentKey } from "./gtm";
 import createBanner from "./shadow-ui";
 import { getStoredConsent, saveAndApply } from "./state";
 
-export default function exposePublicAPI(gtmId: string) {
+export default function exposePublicAPI() {
   // @ts-expect-error
   window.cookieConsent = {
     getState() {
