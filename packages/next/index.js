@@ -1,1 +1,0 @@
-export { ConsentProvider } from "./ConsentProvider";

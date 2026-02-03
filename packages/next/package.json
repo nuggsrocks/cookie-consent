@@ -8,8 +8,7 @@
     "dist"
   ],
   "dependencies": {
-    "@cookie-consent/core": "workspace:*",
-    "react": "^19.2.4"
+    "@cookie-consent/core": "workspace:*"
   },
   "scripts": {
     "build": "tsc"

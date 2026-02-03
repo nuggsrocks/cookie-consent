@@ -6,6 +6,10 @@
   "scripts": {
     "build": "pnpm -r build"
   },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
   "exports": {
     ".": {
       "types": "./packages/core/dist/index.d.ts",
