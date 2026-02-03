@@ -5,5 +5,23 @@
   "type": "module",
   "scripts": {
     "build": "pnpm -r build"
+  },
+  "exports": {
+    ".": {
+      "types": "./packages/core/dist/index.d.ts",
+      "import": "./packages/core/dist/index.js"
+    },
+    "./core": {
+      "types": "./packages/core/dist/index.d.ts",
+      "import": "./packages/core/dist/index.js"
+    },
+    "./script": {
+      "types": "./packages/script/dist/index.d.ts",
+      "import": "./packages/script/dist/index.js"
+    },
+    "./next": {
+      "types": "./packages/next/dist/index.d.ts",
+      "import": "./packages/next/dist/index.js"
+    }
   }
 }
