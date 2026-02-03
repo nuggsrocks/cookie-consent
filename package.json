@@ -1,31 +1,15 @@
 {
   "name": "cookie-consent",
-  "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "main": "index.ts",
   "scripts": {
-    "build": "pnpm -r build"
+    "build": "vite build"
   },
-  "peerDependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
-  },
-  "exports": {
-    ".": {
-      "types": "./packages/core/dist/index.d.ts",
-      "import": "./packages/core/dist/index.js"
-    },
-    "./core": {
-      "types": "./packages/core/dist/index.d.ts",
-      "import": "./packages/core/dist/index.js"
-    },
-    "./script": {
-      "types": "./packages/script/dist/index.d.ts",
-      "import": "./packages/script/dist/index.js"
-    },
-    "./next": {
-      "types": "./packages/next/dist/index.d.ts",
-      "import": "./packages/next/dist/index.js"
-    }
+  "packageManager": "pnpm@10.28.1",
+  "devDependencies": {
+    "@types/node": "^25.2.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
   }
 }

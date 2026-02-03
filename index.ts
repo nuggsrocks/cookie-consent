@@ -9,7 +9,12 @@ import {
 
 export const consentKey = "site_consent_v1";
 
-export default function initConsent({ gtmId }: { gtmId: string }) {
+function initConsent({ gtmId }: { gtmId: string | undefined }) {
+  if (gtmId === undefined) {
+    console.error("Must provide a Google Tag Manager id");
+    return;
+  }
+
   // @ts-expect-error
   window.dataLayer = window.dataLayer || [];
   // @ts-expect-error
@@ -32,3 +37,11 @@ export default function initConsent({ gtmId }: { gtmId: string }) {
 
   exposePublicAPI(gtmId);
 }
+
+const script = document.currentScript as HTMLScriptElement;
+
+window.onload = () => {
+  initConsent({
+    gtmId: script?.dataset.gtm,
+  });
+};
