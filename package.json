@@ -2,11 +2,25 @@
   "name": "cookie-consent",
   "version": "1.2.1",
   "type": "module",
-  "main": "./dist/consent.iife.js",
-  "scripts": {
-    "build": "rm -rf dist && esbuild index.ts --bundle --minify --format=iife --loader:.css=text --outfile=dist/consent.iife.js"
+  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    },
+    "./iife": {
+      "import": "./dist/consent.iife.js"
+    }
   },
-  "packageManager": "pnpm@10.28.1",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build:iife": "esbuild iife.ts --bundle --minify --format=iife --loader:.css=text --outfile=dist/consent.iife.js",
+    "build:esm": "esbuild index.ts --bundle --minify --format=esm --loader:.css=text --outfile=dist/index.js",
+    "build:types": "tsc",
+    "build": "rm -rf dist && pnpm build:iife && pnpm build:esm && pnpm build:types"
+  },
+  "packageManager": "pnpm@10.28.2",
   "devDependencies": {
     "@types/node": "^25.2.0",
     "esbuild": "^0.27.2",

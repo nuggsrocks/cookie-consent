@@ -1,5 +1,5 @@
 import { consentKey } from "./gtm";
-import createBanner from "./shadow-ui";
+import { createBanner } from "./shadow-ui";
 import { getStoredConsent, saveAndApply } from "./state";
 
 export default function exposePublicAPI() {

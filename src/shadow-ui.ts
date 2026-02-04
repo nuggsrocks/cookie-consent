@@ -1,7 +1,7 @@
 // @ts-expect-error
 import css from "./styles.css";
 
-export default function createBanner() {
+export function createBanner() {
   const host = document.createElement("div");
   const shadow = host.attachShadow({ mode: "open" });
 
