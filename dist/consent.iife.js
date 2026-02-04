@@ -1,12 +1,6 @@
-"use strict";(()=>{var n="site_consent_v1";function r({gtmId:t}){window.dataLayer=window.dataLayer||[],window.dataLayer.push({event:"gtm.js","gtm.start":Date.now()});let e=document.createElement("script");e.async=!0,e.id="google-tag-manager",e.src=`https://www.googletagmanager.com/gtm.js?id=${t}`,document.head.append(e),window.__gtmLoaded=!0}var u=`:root {
-  --cc-background: white;
-  --cc-foreground: black;
-  --cc-accent: oklch(0.85 0 0);
-}
-
-#banner {
+"use strict";(()=>{var n="site_consent_v1";function r({gtmId:t}){window.dataLayer=window.dataLayer||[],window.dataLayer.push({event:"gtm.js","gtm.start":Date.now()});let e=document.createElement("script");e.async=!0,e.id="google-tag-manager",e.src=`https://www.googletagmanager.com/gtm.js?id=${t}`,document.head.append(e),window.__gtmLoaded=!0}var u=`#banner {
   background-color: white;
-  border: 1px solid var(--cc-accent);
+  border: 1px solid var(--cc-accent, oklch(0.85 0 0));
   border-radius: calc(0.625rem - 2px);
   max-width: 25%;
   position: fixed;
@@ -91,15 +85,15 @@ button[data-accept] {
 button[data-accept],
 button[data-reject] {
   padding: 0.5rem 1rem;
-  background-color: var(--cc-background);
-  color: var(--cc-foreground);
+  background-color: var(--cc-background, black);
+  color: var(--cc-foreground, white);
   border: none;
   width: 100%;
 
   &:hover {
     background-color: color-mix(
       in oklch,
-      var(--cc-background) 90%,
+      var(--cc-background, black) 90%,
       transparent
     );
   }
