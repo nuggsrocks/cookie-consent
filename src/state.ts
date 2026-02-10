@@ -24,19 +24,22 @@ export function updateConsent(consent: Consent) {
 }
 
 export function getStoredConsent(consentKey: string) {
-  try {
-    // @ts-expect-error
-    const consent = JSON.parse(localStorage.getItem(consentKey))
+  const cookie = document.cookie
 
-    return consent
-  } catch (err) {
-    if (process.env.NODE_ENV !== 'production') console.warn(err)
+  const consent = cookie
+    .split('; ')
+    .find((row) => row.startsWith(consentKey + '='))
+    ?.split('=')[1]
+
+  if (consent === undefined) {
     return null
   }
+
+  return JSON.parse(consent)
 }
 
 export function storeConsent(consent: Consent, consentKey: string) {
-  localStorage.setItem(consentKey, JSON.stringify(consent))
+  document.cookie = `${consentKey}=${JSON.stringify(consent)}; SameSite=None; Secure`
 }
 
 export function saveAndApply(consent: Consent, consentKey: string) {
