@@ -39,7 +39,7 @@ export function getStoredConsent(consentKey: string) {
 }
 
 export function storeConsent(consent: Consent, consentKey: string) {
-  document.cookie = `${consentKey}=${JSON.stringify(consent)}; SameSite=None; Secure`
+  document.cookie = `${consentKey}=${JSON.stringify(consent)}; SameSite=None; Secure; domain=.crackerjacksolutions.com; path=/`
 }
 
 export function saveAndApply(consent: Consent, consentKey: string) {
