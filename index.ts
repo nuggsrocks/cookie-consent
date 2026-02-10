@@ -1,5 +1,5 @@
-"use client";
+'use client'
 
-import ConsentProvider from "./src/ConsentProvider";
+import ConsentProvider from './src/ConsentProvider'
 
-export default ConsentProvider;
+export default ConsentProvider

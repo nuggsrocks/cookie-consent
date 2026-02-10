@@ -15,13 +15,13 @@
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Segoe UI",
+    'Segoe UI',
     Roboto,
     Oxygen,
     Ubuntu,
     Cantarell,
-    "Open Sans",
-    "Helvetica Neue",
+    'Open Sans',
+    'Helvetica Neue',
     sans-serif;
 
   transition: all 500ms ease-in-out;

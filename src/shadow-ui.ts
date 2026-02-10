@@ -1,9 +1,9 @@
 // @ts-expect-error
-import css from "./styles.css";
+import css from './styles.css'
 
 export function createBanner() {
-  const host = document.createElement("div");
-  const shadow = host.attachShadow({ mode: "open" });
+  const host = document.createElement('div')
+  const shadow = host.attachShadow({ mode: 'open' })
 
   shadow.innerHTML = `
     <style>
@@ -58,42 +58,42 @@ export function createBanner() {
       <button data-accept>Accept</button>
       <button data-reject>Reject</button>
     </div>
-  `;
+  `
 
   const closeBtn: HTMLButtonElement | null =
-    shadow.querySelector("[data-close]");
+    shadow.querySelector('[data-close]')
 
   if (closeBtn) {
     closeBtn.onclick = () => {
-      shadow.querySelector("#banner")?.classList.remove("visible");
-    };
+      shadow.querySelector('#banner')?.classList.remove('visible')
+    }
   }
 
   const acceptBtn: HTMLButtonElement | null =
-    shadow.querySelector("[data-accept]");
+    shadow.querySelector('[data-accept]')
 
   if (acceptBtn) {
     acceptBtn.onclick = () => {
       // @ts-expect-error
-      window.cookieConsent.acceptAnalytics();
-      shadow.querySelector("#banner")?.classList.remove("visible");
-    };
+      window.cookieConsent.acceptAnalytics()
+      shadow.querySelector('#banner')?.classList.remove('visible')
+    }
   }
 
   const rejectBtn: HTMLButtonElement | null =
-    shadow.querySelector("[data-reject]");
+    shadow.querySelector('[data-reject]')
 
   if (rejectBtn) {
     rejectBtn.onclick = () => {
       // @ts-expect-error
-      window.cookieConsent.rejectAll();
-      shadow.querySelector("#banner")?.classList.remove("visible");
-    };
+      window.cookieConsent.rejectAll()
+      shadow.querySelector('#banner')?.classList.remove('visible')
+    }
   }
 
-  document.body.appendChild(host);
+  document.body.appendChild(host)
 
   setTimeout(() => {
-    shadow.querySelector("#banner")?.classList.add("visible");
-  }, 300);
+    shadow.querySelector('#banner')?.classList.add('visible')
+  }, 300)
 }

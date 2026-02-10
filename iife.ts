@@ -1,9 +1,9 @@
-import { initConsent } from "./src/init";
+import { initConsent } from './src/init'
 
-const script = document.currentScript as HTMLScriptElement;
+const script = document.currentScript as HTMLScriptElement
 
 window.onload = () => {
   initConsent({
     gtmId: script?.dataset.gtm,
-  });
-};
+  })
+}

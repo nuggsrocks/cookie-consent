@@ -5,7 +5,8 @@
   "main": "./dist/index.js",
   "exports": {
     ".": {
-      "import": "./dist/index.js"
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     },
     "./iife": {
       "import": "./dist/consent.iife.js"
@@ -18,7 +19,8 @@
     "build:iife": "esbuild iife.ts --bundle --minify --format=iife --loader:.css=text --outfile=dist/consent.iife.js",
     "build:esm": "esbuild index.ts --bundle --minify --format=esm --external:react --external:react-dom --loader:.css=text --outfile=dist/index.js",
     "build:types": "tsc",
-    "build": "rm -rf dist && pnpm build:iife && pnpm build:esm && pnpm build:types"
+    "build": "rm -rf dist && pnpm build:iife && pnpm build:esm && pnpm build:types",
+    "format": "prettier --write"
   },
   "packageManager": "pnpm@10.28.2",
   "devDependencies": {
@@ -26,7 +28,7 @@
     "@types/react": "^19.2.11",
     "@types/react-dom": "^19.2.3",
     "esbuild": "^0.27.2",
-    "husky": "^9.1.7",
+    "prettier": "^3.8.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "typescript": "^5.9.3"

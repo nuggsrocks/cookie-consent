@@ -1,22 +1,22 @@
-"use client";
+'use client'
 
-import { initConsent } from "./init";
-import { useEffect } from "react";
+import { initConsent } from './init'
+import { useEffect } from 'react'
 
 export default function ConsentProvider({
   gtmId,
 }: {
-  gtmId: string | undefined;
+  gtmId: string | undefined
 }) {
   useEffect(() => {
     if (gtmId === undefined) {
-      if (process.env.NODE_ENV !== "production") {
-        console.warn("No Google tag ID specified!");
+      if (process.env.NODE_ENV !== 'production') {
+        console.warn('No Google tag ID specified!')
       }
-      return;
+      return
     }
-    initConsent({ gtmId });
-  }, []);
+    initConsent({ gtmId })
+  }, [])
 
-  return null;
+  return null
 }

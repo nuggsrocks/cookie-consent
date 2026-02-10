@@ -1,2 +1,2 @@
-import ConsentProvider from "./src/ConsentProvider";
+import ConsentProvider from './src/ConsentProvider';
 export default ConsentProvider;
