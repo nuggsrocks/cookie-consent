@@ -1,0 +1,33 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "rangeStrategy": "bump",
+  "timezone": "America/Detroit",
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["every month"]
+  },
+  "schedule": ["every month"],
+  "packageRules": [
+    {
+      "matchDatasources": ["node-version"],
+      "enabled": false
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "groupName": "patch dependencies"
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "groupName": "dev dependencies"
+    },
+    {
+      "matchDepTypes": ["dependencies"],
+      "groupName": "runtime dependencies"
+    }
+  ],
+  "ignorePaths": [".nvmrc", ".node-version"],
+  "semanticCommits": "enabled",
+  "semanticCommitType": "chore",
+  "semanticCommitScope": "deps"
+}
